@@ -65,7 +65,6 @@ async function confirmedOrder(orderId) {
 
 async function shipedOrder(orderId) {
   const order = await findOrderById(orderId);
-
   order.orderStatus = "SHIPPED";
   return await order.save();
 }

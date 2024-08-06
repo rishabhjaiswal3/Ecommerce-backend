@@ -56,9 +56,7 @@ async function createProduct(reqData) {
 async function deleteProduct(productId) {
 
     const product = await findProductByid(parentId);
-
     await Product.findByIdAndDelete(productId);
-
     return "Product Deleted Successfully ";
 
 }
@@ -66,7 +64,6 @@ async function deleteProduct(productId) {
 async function updateProduct(productId, reqData) {
     return  await Product.findByIdAndUpdate(productId,reqData);
 }
-
 
 async function findProductByid(id) {
     const product = await Product.findById(id).populate('category').exec();

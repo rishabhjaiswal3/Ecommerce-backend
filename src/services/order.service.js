@@ -100,7 +100,7 @@ async function userOrderHisotry(userId) {
   }
 }
 
-async function getAllOrder() {
+async function getAllOrders() {
   const orders = await Order.find()
     .populate({ path: "orderItmes", populate: { path: "product" } })
     .lean();
@@ -121,6 +121,6 @@ module.exports = {
   cancelOrder,
   findOrderById,
   userOrderHisotry,
-  getAllOrder,
+  getAllOrders,
   deleteOrder,
 };

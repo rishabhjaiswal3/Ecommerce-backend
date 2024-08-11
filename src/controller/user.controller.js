@@ -19,7 +19,7 @@ const getUserProfile = async (req,res) => {
     }
 } 
 
-const getAllusers = async (req,res) => {
+const getAllUsers = async (req,res) => {
 
     try{
         const users = await userService.getAllUsers();
@@ -32,5 +32,5 @@ const getAllusers = async (req,res) => {
 
 module.exports = {
     getUserProfile,
-    getAllusers
+    getAllUsers
 }

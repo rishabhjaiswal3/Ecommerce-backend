@@ -55,7 +55,7 @@ async function createProduct(reqData) {
 
 async function deleteProduct(productId) {
 
-    const product = await findProductByid(parentId);
+    const product = await findProductById(parentId);
     await Product.findByIdAndDelete(productId);
     return "Product Deleted Successfully ";
 
@@ -65,11 +65,11 @@ async function updateProduct(productId, reqData) {
     return  await Product.findByIdAndUpdate(productId,reqData);
 }
 
-async function findProductByid(id) {
+async function findProductById(id) {
     const product = await Product.findById(id).populate('category').exec();
 
     if(!product){
-        throw new Error("Product tnot found with id ",+id);
+        throw new Error("Product not found with id ",+id);
     }
     return product;
 }
@@ -157,6 +157,6 @@ module.exports = {
     deleteProduct,
     updateProduct,
     getAllProducts,
-    findProductByid,
+    findProductById,
     createMultiProduct
 }

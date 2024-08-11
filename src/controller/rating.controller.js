@@ -1,6 +1,6 @@
-const ratingSerivce = require('../services/rating.service');
+const ratingService = require('../services/rating.service');
 
-const createrating = async (req,res) => {
+const createRating = async (req,res) => {
 
     const user = req.user;
     try {
@@ -18,8 +18,8 @@ const getAllRatings = async (req,res) => {
     const user = req.user;
     const productId = req.params.productId;
     try {
-        const ratings= await ratingService.getAllrating(productId);
-        return res.status(201).send(revieratingsw);
+        const ratings= await ratingService.getAllRating(productId);
+        return res.status(201).send(ratings);
     }
     catch(error) {
         return res.status(500).send({error:error.message});

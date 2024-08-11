@@ -10,7 +10,7 @@ const createProduct = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  const poductId = req.params.id;
+  const productId = req.params.id;
   try {
     const product = await productService.deleteProduct(productId);
     return res.status(201).send(product);
@@ -20,7 +20,7 @@ const deleteProduct = async (req, res) => {
 };
 
 const updateProduct = async (req, res) => {
-  const poductId = req.params.id;
+  const productId = req.params.id;
   try {
     const product = await productService.updateProduct(productId,req.body);
     return res.status(201).send(product);
@@ -32,9 +32,9 @@ const updateProduct = async (req, res) => {
 
 
 const findProductById = async (req,res) => {
-    const poductId = req.params.id;
+    const productId = req.params.id;
     try {
-      const product = await productService.findProductByid(productId);
+      const product = await productService.findProductById(productId);
       return res.status(201).send(product);
     } catch (error) {
       return res.status(500).send({ message: error.message });

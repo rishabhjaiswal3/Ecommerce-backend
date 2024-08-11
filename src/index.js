@@ -23,11 +23,11 @@ app.get('/',(req,res) => {
 app.use("/auth",authRouters);
 app.use('/api/users',userRouters);
 app.use("/api/products",productRouters);
+app.use('/api/ratings',ratingRouters);
+app.use('/api/reviews',reviewRouters);
 app.use('/api/cart',cartRouters);
 app.use('/api/cart_item',cartItemsRouters);
 app.use('/api/orders',orderRouters);
-app.use('/api/ratings',ratingRouters);
-app.use('/api/reviews',reviewRouters);
 
 
 

@@ -1,10 +1,10 @@
-const Rating = requrie('../models/rating.model.js');
+const Rating = require('../models/rating.model.js');
 const productService = require('../services/product.service');
 
 
 async function createRating(reqData, user) {
 
-    const product = await productService.findProductByid(reqData.productId);
+    const product = await productService.findProductById(reqData.productId);
     const rating = new Review({
         user: user._id,
         product: product._id,

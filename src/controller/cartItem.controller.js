@@ -15,7 +15,7 @@ const updateCartItem = async () => {
 
 }
 
-const remoteCartItem = async (req,res) => {
+const removeCartItem = async (req,res) => {
 
     const user = req.user;
 

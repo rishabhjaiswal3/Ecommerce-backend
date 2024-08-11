@@ -1,5 +1,5 @@
 const userService = require("../services/user.service");
-const cartService = requrie("../services/cart.service");
+const cartService = require("../services/cart.service");
 
 async function updateCartItem(userId, cartItemId, cartItemData) {
   try {

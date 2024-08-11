@@ -63,7 +63,7 @@ async function confirmedOrder(orderId) {
   return await order.save();
 }
 
-async function shipedOrder(orderId) {
+async function shipOrder(orderId) {
   const order = await findOrderById(orderId);
   order.orderStatus = "SHIPPED";
   return await order.save();
@@ -89,7 +89,7 @@ async function findOrderById(orderId) {
   return order;
 }
 
-async function userOrderHisotry(userId) {
+async function userOrderHistory(userId) {
   try {
     const orders = await Order.find({ user: userId, orderStatus: "PLACED" })
       .populate({ path: "orderItmes", populate: { path: "product" } })
@@ -116,11 +116,11 @@ module.exports = {
   createOrder,
   placeOrder,
   confirmedOrder,
-  shipedOrder,
+  shipOrder,
   deliverOrder,
   cancelOrder,
   findOrderById,
-  userOrderHisotry,
+  userOrderHistory,
   getAllOrders,
   deleteOrder,
 };

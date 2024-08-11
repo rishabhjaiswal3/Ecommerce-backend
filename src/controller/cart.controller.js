@@ -13,7 +13,7 @@ const findUserCart = async (req,res) => {
 
 }
 
-const addItemtoCart = async (req,res) => {
+const addItemsToCart = async (req,res) => {
 
     const user = req.user;
     try {
@@ -27,6 +27,6 @@ const addItemtoCart = async (req,res) => {
 
 
 module.exports = {
-    addItemtoCart,
+    addItemsToCart,
     findUserCart
 }

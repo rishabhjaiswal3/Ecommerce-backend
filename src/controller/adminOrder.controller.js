@@ -11,7 +11,7 @@ const getAllOrders = async (req,res) => {
     }
 }
 
-const confirmeOrders = async (req,res) => {
+const confirmOrders = async (req,res) => {
 
     const orderId = req.params.orderId;
     try {
@@ -24,11 +24,11 @@ const confirmeOrders = async (req,res) => {
 }
 
 
-const shippOrders = async (req,res) => {
+const shipOrders = async (req,res) => {
 
     const orderId = req.params.orderId;
     try {
-        const order = await orderService.shippOrders(orderId);
+        const order = await orderService.shipOrders(orderId);
         return res.status(200).send(orders);        
     }   
     catch(error) {
@@ -76,8 +76,8 @@ const deleteOrders = async (req,res) => {
 
 module.exports = {
     getAllOrders,
-    confirmeOrders,
-    shippOrders,
+    confirmOrders,
+    shipOrders,
     deliverOrders,
     cancelOrders,
     deleteOrders,

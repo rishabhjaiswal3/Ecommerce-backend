@@ -31,7 +31,7 @@ async function findUserCart(userId) {
 
     cart.totalPrice = totalPrice;
     cart.totalItem = totalItem;
-    cart.discounte = totalPrice - totalDiscountedPricePrice;
+    cart.discount = totalPrice - totalDiscountedPricePrice;
     return cart;
   } catch (error) {
     throw new Error(error.message);

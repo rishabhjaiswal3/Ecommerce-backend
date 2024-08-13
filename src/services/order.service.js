@@ -1,12 +1,13 @@
 const cartService = require("../services/cart.service");
 const Address = require("../models/address.model");
 const Order = require("../models/order.model");
+const OrderItem = require('../models/orderItems.model');
 
-async function createOrder(user, shippAddress) {
+async function createOrder(user, shipAddress) {
   let address;
 
-  if (shippAddress?._id) {
-    let existedAddress = await Address.findById(shippAddress?._id);
+  if (shipAddress?._id) {
+    let existedAddress = await Address.findById(shipAddress?._id);
     address = existedAddress;
   } else {
     address = new Address(shippAddress);
@@ -20,7 +21,7 @@ async function createOrder(user, shippAddress) {
   const orderItems = [];
 
   for (const item of cart.cartItems) {
-    const orderItem = new orderItems({
+    const orderItem = new OrderItem({
       price: item.price,
       product: item.product,
       quantity: item.quantity,
@@ -92,7 +93,7 @@ async function findOrderById(orderId) {
 async function userOrderHistory(userId) {
   try {
     const orders = await Order.find({ user: userId, orderStatus: "PLACED" })
-      .populate({ path: "orderItmes", populate: { path: "product" } })
+      .populate({ path: "orderItems", populate: { path: "product" } })
       .lean();
     return orders;
   } catch (error) {
@@ -102,7 +103,7 @@ async function userOrderHistory(userId) {
 
 async function getAllOrders() {
   const orders = await Order.find()
-    .populate({ path: "orderItmes", populate: { path: "product" } })
+    .populate({ path: "orderItems", populate: { path: "product" } })
     .lean();
   return orders;
 }

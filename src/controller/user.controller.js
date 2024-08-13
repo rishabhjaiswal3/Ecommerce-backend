@@ -3,7 +3,9 @@ const userService = require('../services/user.service');
 const getUserProfile = async (req,res) => {
 
     try {
-        const jwt = req.headers.authorization?.split(" ")[1];
+        console.log("req ",req?.headers?.authorization);
+        const jwt = req?.headers?.authorization?.split(" ")[1];
+        console.log("req JWT is ",jwt);
         if(!jwt) {
             return res.status(401).json({message: "Unauthorized, Token not found"});
         }

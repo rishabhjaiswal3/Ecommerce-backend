@@ -1,5 +1,6 @@
 const userService = require("../services/user.service");
 const cartService = require("../services/cart.service");
+const CartItem = require("../models/cartItems.model");
 
 async function updateCartItem(userId, cartItemId, cartItemData) {
   try {
@@ -44,8 +45,9 @@ async function removeCartItem(userId, cartItemId) {
   }
 }
 
-async function fundCartItemById(cartItemId) {
-  const cartItem = await findCartItemById(cartItemId);
+async function findCartItemById(cartItemId) {
+  const cartItem = await CartItem.findById(cartItemId);
+  // const cartItem = await findCartItemById(cartItemId);
   if (cartItem) {
     return cartItem;
   } else {
@@ -53,4 +55,4 @@ async function fundCartItemById(cartItemId) {
   }
 }
 
-module.exports = { updateCartItem, removeCartItem, fundCartItemById };
+module.exports = { updateCartItem, removeCartItem, findCartItemById };
